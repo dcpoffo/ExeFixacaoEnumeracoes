@@ -1,6 +1,7 @@
 ﻿using ExeFixacao.Entities.Enums;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace ExeFixacao.Entities
@@ -47,9 +48,19 @@ namespace ExeFixacao.Entities
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            // fazer construtor do ToString
-            // para apresentar o sumario do pedido
-
+            sb.AppendLine("*** ORDER SUMMARY ***");
+            sb.AppendLine($"Order moment: {Date.ToString("dd/MM/yyyy HH:mm:ss")}");
+            sb.AppendLine($"Order status: {OrderStatus}");
+            sb.AppendLine($"Client: {Client}");
+            sb.AppendLine();
+            sb.AppendLine("Order Itens:");
+            foreach (OrderItem item in Itens)
+            {
+                sb.AppendLine(item.ToString());
+            }
+            sb.AppendLine($"Total Price: {Total().ToString("F2", CultureInfo.InvariantCulture)}");
+            sb.AppendLine("*** END OF ORDER ***");
+            sb.AppendLine();
             return sb.ToString();
         }
     }

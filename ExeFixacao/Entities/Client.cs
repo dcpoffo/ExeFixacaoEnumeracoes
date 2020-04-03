@@ -6,7 +6,7 @@ namespace ExeFixacao.Entities
     {
         public string Name { get; set; }
         public string Email { get; set; }
-        public DateTime birthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         public Client()
         {
@@ -16,7 +16,7 @@ namespace ExeFixacao.Entities
         {
             Name = nome;
             Email = email;
-            this.birthDate = birthDate;
+            BirthDate = birthDate;
         }
 
         public override string ToString()
@@ -24,7 +24,7 @@ namespace ExeFixacao.Entities
             return
                 Name
                 + " ("
-                + birthDate.ToString("dd/MM/yyyy")
+                + BirthDate.ToString("dd/MM/yyyy")
                 + ") - "
                 + Email;
         }
